@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: clean-architecture-02
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/mysqldb # MySQL ?????? URL
+    username: user                         # MySQL ??? ??
+    password: password                         # MySQL ????
+    driver-class-name: com.mysql.cj.jdbc.Driver # MySQL ???? ???
+
+  sql:
+    init: # application ??? sql ??
+      mode: always
+      data-locations: classpath*:init-scripts/data.sql
+      continue-on-error: true
+
+  # JPA ??
+  jpa:
+    hibernate:
+      ddl-auto: create # DB ??? ?? (none, create, create-drop, update, validate)
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect # MySQL Dialect
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
