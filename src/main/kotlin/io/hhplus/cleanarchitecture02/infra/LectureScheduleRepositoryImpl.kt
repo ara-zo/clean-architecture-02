@@ -16,9 +16,7 @@ class LectureScheduleRepositoryImpl(
     private val lectureScheduleJpaRepository: LectureScheduleJpaRepository
 ) : LectureScheduleRepository {
     override fun findById(lectureScheduleId: Long): LectureSchedule {
-        return lectureScheduleJpaRepository.findById(lectureScheduleId)
-            .map(LectureScheduleMapper::toDomain)
-            .orElseThrow { EntityNotFoundException() }
+        return LectureScheduleMapper.toDomain(lectureScheduleJpaRepository.findLectureScheduleById(lectureScheduleId))
     }
 
     override fun findAllLectureScheduleList(lecture: Lecture): List<LectureSchedule> {
