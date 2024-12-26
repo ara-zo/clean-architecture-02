@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "lectures_schedule")
+@Table(name = "lecture_schedule")
 data class LectureScheduleEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
