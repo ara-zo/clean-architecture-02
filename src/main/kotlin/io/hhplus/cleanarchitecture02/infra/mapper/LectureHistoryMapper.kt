@@ -14,7 +14,7 @@ object LectureHistoryMapper {
 
     fun toEntity(lectureHistory: LectureHistory): LectureHistoryEntity {
         return LectureHistoryEntity(
-            lectureHistory.id!!,
+            null,
             LectureScheduleMapper.toEntity(lectureHistory.lectureSchedule),
             lectureHistory.userId
         )
